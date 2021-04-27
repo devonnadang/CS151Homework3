@@ -2,19 +2,9 @@ package sjsu.edu.dang;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.FlowLayout;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-
-import javax.swing.BoxLayout;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
 import org.junit.jupiter.api.Test;
-
-import sjsu.edu.dang.controller.Controller;
 import sjsu.edu.dang.controller.Message;
 import sjsu.edu.dang.model.ColorModel;
 import sjsu.edu.dang.view.View;

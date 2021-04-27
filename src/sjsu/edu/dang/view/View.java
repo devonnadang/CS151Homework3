@@ -4,11 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.util.ArrayList;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,8 +14,6 @@ import javax.swing.JTextField;
 import sjsu.edu.dang.controller.Message;
 import sjsu.edu.dang.controller.ResetMessage;
 import sjsu.edu.dang.controller.UpdateMessage;
-import sjsu.edu.dang.model.ColorModel;
-
 
 public class View extends JFrame{
     BlockingQueue<Message> queue;
@@ -113,14 +107,12 @@ public class View extends JFrame{
 
 
     public void updateHeightInView(int updateRed, int updateBlue, int updateGreen) {
-        //this.studentNameLabel.setText(value); //updating LABEL 
     	this.redResultLabel.setText(String.valueOf("red height: " + updateRed));
     	this.blueResultLabel.setText(String.valueOf("blue height: " +updateBlue));
     	this.greenResultLabel.setText(String.valueOf("green height: " +updateGreen));
     }
 
     public void resetHeightInView() {
-        //this.allClassesLabel.setText(classes.toString()); //updating LABEL 
     	String resetNum = "0";
     	this.redResultLabel.setText(String.valueOf("red height: " + resetNum));
     	this.blueResultLabel.setText(String.valueOf("blue height: " +resetNum));
