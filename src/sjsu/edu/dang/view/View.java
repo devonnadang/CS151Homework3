@@ -18,9 +18,7 @@ import javax.swing.JTextField;
 import sjsu.edu.dang.controller.Message;
 import sjsu.edu.dang.controller.ResetMessage;
 import sjsu.edu.dang.controller.UpdateMessage;
-import sjsu.edu.dang.model.BlueColorModel;
-import sjsu.edu.dang.model.GreenColorModel;
-import sjsu.edu.dang.model.RedColorModel;
+import sjsu.edu.dang.model.ColorModel;
 
 
 public class View extends JFrame{
@@ -33,9 +31,9 @@ public class View extends JFrame{
     JLabel greenLabel;
     
     
-    JLabel redResultLabel;
-    JLabel blueResultLabel;
-    JLabel greenResultLabel;
+    public JLabel redResultLabel;
+    public JLabel blueResultLabel;
+    public JLabel greenResultLabel;
     
     
     JButton updateButton;
@@ -61,9 +59,9 @@ public class View extends JFrame{
 
 
         updateButton.addActionListener(e -> {
-            String redValue = redTextField.getText();
-            String blueValue = blueTextField.getText();
-            String greenValue = greenTextField.getText();
+            int redValue = Integer.parseInt(redTextField.getText());
+            int blueValue = Integer.parseInt(blueTextField.getText());
+            int greenValue = Integer.parseInt(greenTextField.getText());
             try {
             	Message msg = new UpdateMessage(redValue, blueValue, greenValue);
                 queue.put(msg);
@@ -73,29 +71,12 @@ public class View extends JFrame{
         });
 
         resetButton.addActionListener(e -> {
-            //String value = textField.getText();
             try {
                 queue.put(new ResetMessage());
             } catch (InterruptedException exception) {
                 // do nothing
             }
         });
-        
-        /*
-
-        this.add(redLabel);
-        this.add(redTextField);
-        
-        this.add(blueLabel);
-        this.add(blueTextField);
-        
-        this.add(greenLabel);
-        this.add(greenTextField);
-        
-        this.add(updateButton);
-        this.add(resetButton);
-        
-*/
         
         this.setSize(500, 500);
         this.setLayout(new FlowLayout());
@@ -126,21 +107,13 @@ public class View extends JFrame{
         this.add(blueResultLabel);
         this.add(greenResultLabel);
         
-        //this.paint(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
-    /*
-    public void paint(Graphics g) {
-    	g.setColor(Color.RED);
-    	g.drawOval(480, 480, 200, 200);
-    }
- */
+
 
     public void updateHeightInView(int updateRed, int updateBlue, int updateGreen) {
         //this.studentNameLabel.setText(value); //updating LABEL 
-    	
     	this.redResultLabel.setText(String.valueOf("red height: " + updateRed));
     	this.blueResultLabel.setText(String.valueOf("blue height: " +updateBlue));
     	this.greenResultLabel.setText(String.valueOf("green height: " +updateGreen));

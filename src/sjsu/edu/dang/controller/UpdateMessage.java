@@ -2,25 +2,25 @@ package sjsu.edu.dang.controller;
 
 public class UpdateMessage implements Message {
 	
-	String redValue;
-	String blueValue;
-	String greenValue;
+	int redValue;
+	int blueValue;
+	int greenValue;
 	
-    public UpdateMessage(String redValue, String blueValue, String greenValue) {
+    public UpdateMessage(int redValue, int blueValue, int greenValue) {
     	this.redValue = redValue;
     	this.blueValue = blueValue;
     	this.greenValue = greenValue;
     }
     
     public int getRedValue() {
-    	return Integer.valueOf(redValue);
+    	return redValue;
     }
     
     public int getBlueValue() {
-    	return Integer.valueOf(blueValue);
+    	return blueValue;
     }
     
     public int getGreenValue() {
-    	return Integer.valueOf(blueValue);
+    	return greenValue;
     }
 }
