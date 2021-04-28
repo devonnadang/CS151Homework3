@@ -39,9 +39,9 @@ public class Controller {
             } else if (message.getClass() == ResetMessage.class) {
             	//update models
             	ResetMessage reset = (ResetMessage) message;
-            	 redColorModel.setHeight(reset.getRedValue()); // update model
-                 blueColorModel.setHeight(reset.getBlueValue()); // update model
-                 greenColorModel.setHeight(reset.getGreenValue()); // update model
+            	 redColorModel.reset(); // update model
+                 blueColorModel.reset(); // update model
+                 greenColorModel.reset(); // update model
                  view.updateHeightInView(redColorModel.getHeight(), blueColorModel.getHeight(), greenColorModel.getHeight()); // update view
             }
     	}

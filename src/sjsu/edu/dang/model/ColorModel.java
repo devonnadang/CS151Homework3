@@ -22,9 +22,14 @@ public class ColorModel{
 	        if (height >= 0) {
 	            this.height = height;
 	        } else {
-	            height = 0;
+	            reset();
 	        }
 	    }
+	    
+	    public void reset() {
+	    	height = 0;
+	    }
+	    
 	    public int getHeight() {
 	        return height;
 	    }
