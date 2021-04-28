@@ -13,26 +13,22 @@ class ColorBarTest {
 
 	@Test
 	void updateTest() {
-		BlockingQueue<Message> queue = new LinkedBlockingQueue<>();
 		
 		ColorModel red = new ColorModel("Red", 0);
 		ColorModel blue = new ColorModel("Blue", 0);
 		ColorModel green = new ColorModel("Green", 0);
-		
-		View view = new View(queue, red.getColor(), blue.getColor(), green.getColor());
 	    
 	    red.setHeight(7); // update model
         blue.setHeight(-6); // update model
         green.setHeight(4); // update model
-        view.updateHeightInView(red.getHeight(), blue.getHeight(), green.getHeight()); // update view
+       
+        int redActual = red.getHeight();
+        int blueActual = blue.getHeight();
+        int greenActual = green.getHeight();
         
-        String redActual = view.redResultLabel.getText();        
-        String blueActual = view.blueResultLabel.getText();
-        String greenActual = view.greenResultLabel.getText();
-	    
-		String redExpected = "red height: 7";
-		String blueExpected = "blue height: 0";;
-		String greenExpected = "green height: 4";;
+        int redExpected = 7;
+        int blueExpected = 0;
+        int greenExpected = 4;
 		
 		assertEquals(redExpected, redActual);
 		assertEquals(blueExpected, blueActual);
